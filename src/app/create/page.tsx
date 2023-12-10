@@ -10,7 +10,7 @@ const CreateHotel = () => {
     const {handleSubmit, register} = useForm()
 
     const handleCreateHotel = async (data: any) => {
-        data.star = Number(data.stars)
+        data.stars = Number(data.stars)
         data.price_per_night = Number(data.price_per_night)
         const createdHotel = await hotelService.CreateHotel({
             ...data,

@@ -18,10 +18,10 @@ const Header = ({router}: any) => {
                 <div className={"flex justify-between items-center"}>
                     <nav className={"flex gap-x-4"}>
                         {
-                            nav.map((nav) => {
+                            nav.map((nav, ix) => {
 
                                 return (
-                                    <div className={"flex flex-col justify-between h-10"}>
+                                    <div key={nav.title + ix} className={"flex flex-col justify-between h-10"}>
 
                                         <Link href={nav.url} title={nav.title}>
                                             {nav.title}

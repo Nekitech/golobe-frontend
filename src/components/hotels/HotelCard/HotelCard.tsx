@@ -1,10 +1,12 @@
-import React, {ReactPropTypes} from 'react';
+import React from 'react';
 import Image from "next/image";
 import {Button} from "@mui/material";
 import HeartIcon from "@/components/UI/Heart/Heart";
 import {colors} from "@/styles/global_styles";
 import {Hotel} from "@/types/Hotel";
 import EditIcon from '@mui/icons-material/Edit';
+import {useRouter} from "next/navigation";
+
 interface PropsHotelCard {
     hotel: Hotel
 
@@ -12,6 +14,12 @@ interface PropsHotelCard {
 
 const HotelCard = ({hotel}: PropsHotelCard) => {
     const {name, rating, price_per_night, address} = hotel;
+    const nav = useRouter()
+
+    const handleNavHotelInfo = () => {
+        nav.push(`/hotels/${hotel.id}`)
+    }
+
     return (
         <div className={"w-210 h-auto p-px-6 flex gap-x-4 p-4"} style={{
             boxShadow: "0px 4px 16px 0px rgba(17, 34, 17, 0.05)"
@@ -42,7 +50,9 @@ const HotelCard = ({hotel}: PropsHotelCard) => {
                             price_per_night && `${price_per_night} / night`
                         }
                     </div>
-                    <Button>
+                    <Button onClick={() => {
+                        nav.push(`/update/${hotel.id}`)
+                    }}>
                         <EditIcon style={{
                             color: "#000"
                         }}/>
@@ -54,7 +64,7 @@ const HotelCard = ({hotel}: PropsHotelCard) => {
                     }}>
                         <HeartIcon/>
                     </Button>
-                    <Button style={{
+                    <Button onClick={handleNavHotelInfo} style={{
                         width: 300,
                         backgroundColor: colors.primary,
                         color: "#fff"

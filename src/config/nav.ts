@@ -11,7 +11,7 @@ export const nav : Nav[] = [
     //     title: "Find Flight"
     // },
     {
-        url: "/hotel_listing",
+        url: "/hotels",
         isActive: false,
         title: "Find Stays"
 
@@ -19,7 +19,7 @@ export const nav : Nav[] = [
     {
         url: "/create",
         isActive: false,
-        title: "Create Hotel"
+        title: "Add New Hotel"
 
     },
 ]

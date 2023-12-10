@@ -4,6 +4,7 @@ import './globals.css'
 import Header from "@/components/common/Header";
 import {QueryClient, QueryClientProvider} from "react-query";
 import TanstackProvider from "@/providers/TanstackProvider";
+import {ReduxProvider} from "@/providers/ReduxProvider";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -24,12 +25,14 @@ export default function RootLayout({
         <body className={inter.className}>{
             <>
                 <Header/>
-                <TanstackProvider>
-                    <div className={"container mx-auto "}>
+                <ReduxProvider>
+                    <TanstackProvider>
+                        <div className={"container mx-auto "}>
 
-                        {children}
-                    </div>
-                </TanstackProvider>
+                            {children}
+                        </div>
+                    </TanstackProvider>
+                </ReduxProvider>
             </>
         }</body>
         </html>
